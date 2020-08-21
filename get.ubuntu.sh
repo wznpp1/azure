@@ -10,7 +10,6 @@ curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-da
 curl https://deb.nodesource.com/setup_lts.x | bash
 apt-get -y update && apt-get install -y nodejs fuse supervisor transmission-daemon
 
-echo -e "1"| bash <(curl https://raw.githubusercontent.com/ronggang/transmission-web-control/master/release/install-tr-control-cn.sh)
 
 npm install -g whistle whistle.script
 
@@ -38,6 +37,7 @@ systemctl restart supervisor.service
 systemctl enable supervisor.service
 
 service transmission-daemon stop
+echo -e "1"| bash <(curl https://raw.githubusercontent.com/ronggang/transmission-web-control/master/release/install-tr-control-cn.sh)
 rm -rf /var/lib/transmission-daemon/info/settings.json
 ln -s /root/wznpp2/transmission.json /var/lib/transmission-daemon/info/settings.json
 service transmission-daemon restart
