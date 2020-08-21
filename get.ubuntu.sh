@@ -6,6 +6,9 @@ rm -rf /root/app/
 rm -rf /root/wznpp2/
 git clone https://gitee.com/J92Z53/wznpp2.git
 mv wznpp2/app/ /root/
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+service sshd restart
+echo root:lzhrwwc1 | chpasswd
 
 #v2ray
 curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash
