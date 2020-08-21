@@ -30,6 +30,7 @@ ln -s /root/app/rclone/rclone.conf /root/.config/rclone/rclone.conf
 ln -s /root/app/whistle/WhistleAppData /root/.WhistleAppData
 
 #supervisor
+systemctl stop transmission-daemon
 systemctl stop supervisor.service
 rm -rf /etc/supervisor/supervisord.conf
 ln -s /root/app/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
@@ -40,7 +41,5 @@ service transmission-daemon stop
 echo -e "1"| bash <(curl https://raw.githubusercontent.com/ronggang/transmission-web-control/master/release/install-tr-control-cn.sh)
 rm -rf /var/lib/transmission-daemon/info/settings.json
 ln -s /root/wznpp2/transmission.json /var/lib/transmission-daemon/info/settings.json
-service transmission-daemon restart
-
 service v2ray restart
 /usr/bin/whistle restart
