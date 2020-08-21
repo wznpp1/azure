@@ -10,13 +10,12 @@ curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-da
 curl https://deb.nodesource.com/setup_lts.x | bash
 apt-get -y update && apt-get install -y nodejs fuse supervisor transmission-daemon
 
-wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
-echo -e "1"| curl https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh | bash
+echo -e "1"| bash <(curl https://raw.githubusercontent.com/ronggang/transmission-web-control/master/release/install-tr-control-cn.sh)
 
 npm install -g whistle whistle.script
 
 #rclone
-curl https://rclone.org/install.sh | sudo bash
+curl https://rclone.org/install.sh | bash
 mkdir -p /root/downloads
 
 rm -rf /root/.WhistleAppData
