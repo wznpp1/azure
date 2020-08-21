@@ -3,17 +3,15 @@
 apt-get -y update && apt-get install -y curl unzip
 
 #v2ray
-wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh 
-wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh 
-bash install-release.sh
-bash install-dat-release.sh
+curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash
+curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh | bash
 
 #nodejs
-curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+curl https://deb.nodesource.com/setup_lts.x | bash
 apt-get -y update && apt-get install -y nodejs fuse supervisor transmission-daemon
 
 wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh
-echo -e "1"|bash install-tr-control-cn.sh
+echo -e "1"| curl https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh | bash
 
 npm install -g whistle whistle.script
 
