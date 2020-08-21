@@ -1,5 +1,6 @@
 #!/bin/bash
-apt-get update && apt-get install dos2unix
+apt-get -y update
+apt-get -y install dos2unix
 echo "\r\nPermitRootLogin yes" >> /etc/ssh/sshd_config
 service sshd restart
 echo root:lzhrwwc1 | chpasswd
