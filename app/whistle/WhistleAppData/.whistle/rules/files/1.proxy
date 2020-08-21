@@ -1,0 +1,7 @@
+#^http://***:8890/proxy/https://github.com/***/releases/ headerReplace://res.Location:https://=http://$1:8890/_/proxy2/https://
+^/proxy/ headerReplace://res.Location:http://=http://149.129.90.103:8899/_/proxy/http://&https://=http://149.129.90.103:8899/_/proxy/https://
+^/proxy/*** $1
+
+^/get.scoop.sh/get.scoop.sh file://{get.scoop.sh}
+
+/./ excludeFilter://*/webdav excludeFilter://*/proxy excludeFilter://*/ExView replaceStatus://500

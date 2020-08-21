@@ -1,0 +1,8 @@
+ exports.handleRequest = async (ctx, next) => {
+	ctx.fullUrl =  'https://idmsa.apple.com/IDMSWebAuth/clientDAW.cgi'
+   const { statusCode, headers } = await next(); 
+   //console.log(ctx.fullUrl, statusCode, headers);
+   const resText = await ctx.getResText();
+   const resTexta = JSON.parse(resText)
+   ctx.body = resTexta.myacinfo;
+ };

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+apt-get update && apt-get install -y curl unzip
+
+#v2ray
+bash <(curl -s -L https://git.io/v2ray.sh)
+
+#nodejs
+curl -sL https://deb.nodesource.com/setup_lts.x | bash -
+apt update
+apt install -y g++ gcc libc6-dev make pkg-config git
+apt install -y nodejs fuse
+npm install -g whistle whistle.script
+
+#torrentfs
+wget https://gitee.com/J92Z53/torrent/raw/master/cmd/torrentfs/torrentfs.zip
+unzip torrentfs.zip
+
+#rclone
+curl https://rclone.org/install.sh | sudo bash

@@ -1,0 +1,18 @@
+2020/07/19 09:47:45 NOTICE: Local file system at /root/app/torrentfs: WebDav Server started on http://[::]:8001/
+2020/07/19 09:49:31 NOTICE: Google drive root '': WebDav Server started on http://[::]:8001/
+2020/07/19 09:49:43 ERROR : /: Dir.Stat error: couldn't list directory: Get https://www.googleapis.com/drive/v3/files?alt=json&corpora=drive&driveId=0AGa2S4UrJsXlUk9PVA&fields=files%28id%2Cname%2Csize%2Cmd5Checksum%2Ctrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%29%2CnextPageToken%2CincompleteSearch&includeItemsFromAllDrives=true&pageSize=1000&prettyPrint=false&q=trashed%3Dfalse+and+%28%270AGa2S4UrJsXlUk9PVA%27+in+parents%29&supportsAllDrives=true: oauth2: cannot fetch token: 401 Unauthorized
+Response: {
+  "error": "unauthorized_client",
+  "error_description": "Unauthorized"
+}
+2020/07/19 09:49:43 ERROR : torrentfs: Failed to list directory: couldn't list directory: Get https://www.googleapis.com/drive/v3/files?alt=json&corpora=drive&driveId=0AGa2S4UrJsXlUk9PVA&fields=files%28id%2Cname%2Csize%2Cmd5Checksum%2Ctrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%29%2CnextPageToken%2CincompleteSearch&includeItemsFromAllDrives=true&pageSize=1000&prettyPrint=false&q=trashed%3Dfalse+and+%28%270AGa2S4UrJsXlUk9PVA%27+in+parents%29&supportsAllDrives=true: oauth2: cannot fetch token: 401 Unauthorized
+Response: {
+  "error": "unauthorized_client",
+  "error_description": "Unauthorized"
+}
+2020/07/19 09:49:49 ERROR : : Failed to list directory: couldn't list directory: Get https://www.googleapis.com/drive/v3/files?alt=json&corpora=drive&driveId=0AGa2S4UrJsXlUk9PVA&fields=files%28id%2Cname%2Csize%2Cmd5Checksum%2Ctrashed%2CmodifiedTime%2CcreatedTime%2CmimeType%2Cparents%2CwebViewLink%29%2CnextPageToken%2CincompleteSearch&includeItemsFromAllDrives=true&pageSize=1000&prettyPrint=false&q=trashed%3Dfalse+and+%28%270AGa2S4UrJsXlUk9PVA%27+in+parents%29&supportsAllDrives=true: oauth2: cannot fetch token: 401 Unauthorized
+Response: {
+  "error": "unauthorized_client",
+  "error_description": "Unauthorized"
+}
+2020/07/19 09:49:54 http: superfluous response.WriteHeader call from github.com/rclone/rclone/vendor/golang.org/x/net/webdav.(*Handler).ServeHTTP (webdav.go:74)

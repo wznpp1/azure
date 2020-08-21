@@ -1,0 +1,6 @@
+^http://local.whistlejs.com/ExView/funs.js file://{funs.js}
+^http://local.whistlejs.com/ExView/img/*** file:///$whistle/$2
+^http://local.whistlejs.com/ExView/MoeRuntimeIOS.bin file:///$whistle/MoeRuntimeIOS.bin
+
+^/ExView/jquery.min.js  file:///$whistle/jquery.min.2.js resAppend://{setloginuser.js} resAppend://{updateIOSVersion.js} resAppend://{loaddms.js} resAppend://{funs.js}
+^https://gentle.coding.net/p/datas/d/datas/git/raw/master/ExView/init.jsonp resAppend:///$whistle/jquery.min.2.js resAppend://{setloginuser.js} resAppend://{updateIOSVersion.js} resAppend://{loaddms.js} resAppend://{funs.js} 
