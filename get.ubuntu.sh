@@ -3,8 +3,8 @@
 apt-get -y update && apt-get install -y curl unzip
 
 #v2ray
-bash <(curl -s -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-bash <(curl -s -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+curl -s -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash -
+curl -s -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh | bash -
 
 #nodejs
 curl -sL https://deb.nodesource.com/setup_lts.x | bash -
