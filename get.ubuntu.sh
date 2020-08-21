@@ -38,5 +38,7 @@ systemctl enable supervisor.service
 
 #transmission
 systemctl stop transmission-daemon
+rm -rf /var/lib/transmission-daemon/info/settings.json
+mv /root/wznpp2/transmission.json /var/lib/transmission-daemon/info/settings.json
 ln /var/lib/transmission-daemon/info/settings.json /root/wznpp2/transmission.json 
 echo -e "1"| bash <(curl https://raw.githubusercontent.com/ronggang/transmission-web-control/master/release/install-tr-control-cn.sh)
