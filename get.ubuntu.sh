@@ -2,6 +2,8 @@
 
 apt-get -y update && apt-get install -y curl unzip
 cd /root/
+rm -rf /root/app/
+rm -rf /root/wznpp2/
 git clone https://gitee.com/J92Z53/wznpp2.git
 mv wznpp2/app/ /root/
 
