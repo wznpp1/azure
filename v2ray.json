@@ -1,82 +1,113 @@
 {
-	"log": {
-		"access": "/var/log/v2ray/access.log",
-		"error": "/var/log/v2ray/error.log",
-		"loglevel": "warning"
-	},
-	"inbounds": [
-		{
-			"port": 32626,
-			"protocol": "vmess",
-			"settings": {
-				"clients": [
-					{
-						"id": "0bac086f-3562-4389-b31b-a3a2be40b52c",
-						"level": 1,
-						"alterId": 233
-					}
-				]
-			},
-			"streamSettings": {
-				"network": "tcp",
-				"tcpSettings": {
-					"header": {
-						"type": "http",
-						"response": {
-							"version": "1.1",
-							"status": "200",
-							"reason": "OK",
-							"headers": {
-								"Content-encoding": [
-									"gzip"
-								],
-								"Content-Type": [
-									"text/html; charset=utf-8"
-								],
-								"Cache-Control": [
-									"no-cache"
-								],
-								"Vary": [
-									"Accept-Encoding"
-								],
-								"X-Frame-Options": [
-									"deny"
-								],
-								"X-XSS-Protection": [
-									"1; mode=block"
-								],
-								"X-content-type-options": [
-									"nosniff"
-								]
-							}
-						}
-					}
-				}
-			},
-			"sniffing": {
-				"enabled": true,
-				"destOverride": [
-					"http",
-					"tls"
-				]
-			}
-		}
-	],
-	"dns": {
-		"servers": [
-			"https+local://cloudflare-dns.com/dns-query",
-			"1.1.1.1",
-			"1.0.0.1",
-			"8.8.8.8",
-			"8.8.4.4",
-			"localhost"
-		]
-	},
-	"transport": {
-		"kcpSettings": {
-			"uplinkCapacity": 100,
-			"downlinkCapacity": 100,
-			"congestion": true
-		}
-	}
+    "log": {
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log",
+        "loglevel": "warning"
+    },
+    "reverse": {
+        "portals": [
+            {
+                "tag": "portal",
+                "domain": "private.cloud.com"
+            }
+        ]
+    },
+    "inbounds": [
+        {
+            "tag": "external",
+            "port": 14939,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "127.0.0.1",
+                "port": 14939,
+                "network": "tcp"
+            }
+        },
+        {
+            "tag": "interconn",
+            "port": 35611,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "2a8804bd-c87f-4a20-a8ef-04e1219dfd34",
+                        "level": 1,
+                        "alterId": 233
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "tcpSettings": {
+                    "header": {
+                        "type": "http",
+                        "response": {
+                            "version": "1.1",
+                            "status": "200",
+                            "reason": "OK",
+                            "headers": {
+                                "Content-encoding": [
+                                    "gzip"
+                                ],
+                                "Content-Type": [
+                                    "text/html; charset=utf-8"
+                                ],
+                                "Cache-Control": [
+                                    "no-cache"
+                                ],
+                                "Vary": [
+                                    "Accept-Encoding"
+                                ],
+                                "X-Frame-Options": [
+                                    "deny"
+                                ],
+                                "X-XSS-Protection": [
+                                    "1; mode=block"
+                                ],
+                                "X-content-type-options": [
+                                    "nosniff"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ],
+    "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": [
+            {
+                "type": "field",
+                "inboundTag": [
+                    "external"
+                ],
+                "outboundTag": "portal"
+            },
+            {
+                "type": "field",
+                "inboundTag": [
+                    "interconn"
+                ],
+                "domain": [
+                    "full:private.cloud.com"
+                ],
+                "outboundTag": "portal"
+            }
+        ]
+    },
+    "transport": {
+        "kcpSettings": {
+            "uplinkCapacity": 100,
+            "downlinkCapacity": 100,
+            "congestion": true
+        }
+    }
 }
