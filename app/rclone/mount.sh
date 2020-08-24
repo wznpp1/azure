@@ -1,4 +1,4 @@
 #!/bin/bash
 
-$(umount /root/app/rclone/mnt)
-/usr/bin/rclone mount union: /root/app/rclone/mnt
+$(umount /root/app/google)
+/usr/bin/rclone mount google: /root/app/google --allow-non-empty
